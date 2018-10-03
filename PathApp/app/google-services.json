@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "715379339176",
+    "firebase_url": "https://thepathmosttravelled-55711.firebaseio.com",
+    "project_id": "thepathmosttravelled-55711",
+    "storage_bucket": "thepathmosttravelled-55711.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715379339176:android:8c34c09480d6fcbc",
+        "android_client_info": {
+          "package_name": "com.path.home.thepathmosttravelled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715379339176-bt2r0qmij7274icchr44v4lgvq701nf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.path.home.thepathmosttravelled",
+            "certificate_hash": "6f230b279c0e44fb7652f3830168849198a1bc9c"
+          }
+        },
+        {
+          "client_id": "715379339176-s30h3aqmu2pfpku6q8ffmmg4sm3h8iku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg2dVR9qdV5RgitHPXk0JLifRrGPJwAII"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715379339176-s30h3aqmu2pfpku6q8ffmmg4sm3h8iku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715379339176:android:757f5b778b816063",
+        "android_client_info": {
+          "package_name": "com.path.home.thepathmosttravelled.thepathmosttravelled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715379339176-bl4da3lpoedtb5cjcsp5tih27bnkru8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.path.home.thepathmosttravelled.thepathmosttravelled",
+            "certificate_hash": "6f230b279c0e44fb7652f3830168849198a1bc9c"
+          }
+        },
+        {
+          "client_id": "715379339176-s30h3aqmu2pfpku6q8ffmmg4sm3h8iku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg2dVR9qdV5RgitHPXk0JLifRrGPJwAII"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715379339176-s30h3aqmu2pfpku6q8ffmmg4sm3h8iku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
