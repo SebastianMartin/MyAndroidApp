@@ -26,7 +26,9 @@
         <activity android:name=".Welcome_Page" />
         <activity android:name=".ERROR_PAGE" />
         <activity android:name=".myTours" />
-        <activity android:name=".newTour"></activity>
+        <activity android:name=".newTour" />
+        <activity android:name=".AddImage" />
+        <activity android:name=".ValidateEmail"></activity>
     </application>
 
 </manifest>

@@ -2,7 +2,9 @@ package com.path.home.thepathmosttravelled;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,12 +13,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -72,7 +78,29 @@ public class Welcome_Page extends AppCompatActivity{
             Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(startIntent);
         }
+        if(currentUser.isEmailVerified() == false){
+            Intent startIntent = new Intent(getApplicationContext(), ValidateEmail.class);
+            startActivity(startIntent);
+        }
+
+
+
+
+
+
+
+
+
+
+
         final String currEmail = currentUser.getEmail().replace(".", ",");
+        final String displayName = currentUser.getDisplayName();
+        final TextView mTextView = (TextView) findViewById(R.id.FirstName);
+        mTextView.setText(displayName);
+
+        Uri userImage = currentUser.getPhotoUrl();
+        //final ImageView userImageView = (ImageView) findViewById(R.id.imageView);
+        //userImageView.setImageURI(userImage);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         String url = "users/"+currEmail;
@@ -81,8 +109,7 @@ public class Welcome_Page extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                final TextView mTextView = (TextView) findViewById(R.id.FirstName);
-                mTextView.setText(user.firstName+" "+user.lastName);
+
                 //mTextView.setText("YES");
                 final TextView mTextView2 = (TextView) findViewById(R.id.LastName);
                 mTextView2.setText("Score\n"+ user.score);

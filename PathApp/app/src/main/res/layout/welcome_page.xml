@@ -81,5 +81,15 @@
         app:layout_constraintTop_toBottomOf="@+id/LastName"
         app:layout_constraintVertical_bias="0.14" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="79dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/LastName"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:srcCompat="@tools:sample/avatars[3]" />
+
 
 </android.support.constraint.ConstraintLayout>
