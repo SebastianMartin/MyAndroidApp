@@ -155,7 +155,11 @@ public class MainActivity extends AppCompatActivity {
         Registration_Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+<<<<<<< HEAD
                 Intent startIntent = new Intent(getApplicationContext(), Sample.class);
+=======
+                Intent startIntent = new Intent(getApplicationContext(), LocationScreen.class);
+>>>>>>> 216314adf175e35e40b08eb0eef72911a5e35c15
                 startActivity(startIntent);
             }
         });
