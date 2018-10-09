@@ -28,7 +28,8 @@
         <activity android:name=".myTours" />
         <activity android:name=".newTour" />
         <activity android:name=".AddImage" />
-        <activity android:name=".ValidateEmail"></activity>
+        <activity android:name=".ValidateEmail" />
+        <activity android:name=".LocationScreen"></activity>
     </application>
 
 </manifest>
