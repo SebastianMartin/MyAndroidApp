@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -72,6 +73,8 @@ public class Welcome_Page extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
         mAuth = FirebaseAuth.getInstance();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //check if someone is already logged in.
         if(currentUser == null){

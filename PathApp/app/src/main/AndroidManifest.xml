@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustPan">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +29,8 @@
         <activity android:name=".myTours" />
         <activity android:name=".newTour" />
         <activity android:name=".AddImage" />
-        <activity android:name=".ValidateEmail"></activity>
+        <activity android:name=".ValidateEmail" />
+        <activity android:name=".Sample"></activity>
     </application>
 
 </manifest>

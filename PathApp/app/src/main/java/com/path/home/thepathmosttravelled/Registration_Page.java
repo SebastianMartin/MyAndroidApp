@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import com.firebase.client.Firebase;
@@ -57,7 +58,6 @@ public class Registration_Page extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private Button registration_btn;
-    private Button back_btn;
 
     private EditText Username;
     private EditText Password;
@@ -129,10 +129,10 @@ public class Registration_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_page);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        back_btn = findViewById(R.id.back_btn);
         registration_btn = findViewById(R.id.RegButton);
 
         Username = findViewById(R.id.RegUsername);
@@ -143,13 +143,7 @@ public class Registration_Page extends AppCompatActivity {
         Email = findViewById(R.id.emailAddress);
 
 
-        back_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
-            }
-        });
+
         registration_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
