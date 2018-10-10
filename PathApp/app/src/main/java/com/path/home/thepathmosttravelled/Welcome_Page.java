@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,34 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Welcome_Page extends AppCompatActivity{
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.user){
-            Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.setting){
-            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
-            startIntent.putExtra("PASSED_ERROR", "SETTINGS PAGE");
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.about){
-            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
-            startIntent.putExtra("PASSED_ERROR", "ABOUT PAGE ");
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.logOut){
-            FirebaseAuth.getInstance().signOut();
-            Intent startIntent2 = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(startIntent2);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    private ImageView PopMenu;
     private FirebaseAuth mAuth;
     private Button myTours;
     private  Button myOrgs;
@@ -141,6 +115,41 @@ public class Welcome_Page extends AppCompatActivity{
                 Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
                 startIntent.putExtra("PASSED_ERROR", "myOrgs");
                 startActivity(startIntent);
+            }
+        });
+        PopMenu = findViewById(R.id.popMenu);
+        PopMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                final PopupMenu popmenu = new PopupMenu(Welcome_Page.this,PopMenu );
+                popmenu.getMenuInflater().inflate(R.menu.popup,popmenu.getMenu());
+                popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getItemId()==R.id.user){
+                            Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.setting){
+                            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
+                            startIntent.putExtra("PASSED_ERROR", "SETTINGS PAGE");
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.about){
+                            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
+                            startIntent.putExtra("PASSED_ERROR", "ABOUT PAGE ");
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.logOut){
+                            FirebaseAuth.getInstance().signOut();
+                            Intent startIntent2 = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(startIntent2);
+                        }
+                        return false;
+                    }
+                });
+                popmenu.show();
+
             }
         });
 

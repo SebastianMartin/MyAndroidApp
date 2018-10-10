@@ -30,11 +30,7 @@
         <activity android:name=".newTour" />
         <activity android:name=".AddImage" />
         <activity android:name=".ValidateEmail" />
-<<<<<<< HEAD
-        <activity android:name=".Sample"></activity>
-=======
         <activity android:name=".LocationScreen"></activity>
->>>>>>> 216314adf175e35e40b08eb0eef72911a5e35c15
     </application>
 
 </manifest>

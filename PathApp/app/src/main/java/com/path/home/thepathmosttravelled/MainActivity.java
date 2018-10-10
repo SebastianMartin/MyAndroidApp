@@ -8,10 +8,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.graphics.Color;
@@ -34,39 +38,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.user){
-            Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.setting){
-            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
-            startIntent.putExtra("PASSED_ERROR", "SETTINGS PAGE");
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.about){
-            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
-            startIntent.putExtra("PASSED_ERROR", "ABOUT PAGE ");
-            startActivity(startIntent);
-        }
-        else if(item.getItemId()==R.id.logOut){
-            FirebaseAuth.getInstance().signOut();
-            Intent startIntent2 = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(startIntent2);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private FirebaseAuth mAuth;
-
+    private ImageView PopMenu;
     private Button Login_Btn;
-    private Button Barcode;
     private Button Registration_Btn;
     private EditText Username;
     private EditText Password;
@@ -112,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(startIntent);
         }
         Firebase.setAndroidContext(this);
-
-
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         Login_Btn = (Button) findViewById(R.id.login_btn);
         Registration_Btn = (Button) findViewById(R.id.register_btn);
 
@@ -126,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 if(Username.getText().toString().isEmpty()){
                     final EditText mTextView = (EditText) findViewById(R.id.usernameField);
                     mTextView.setHighlightColor(2);
-                    mTextView.setBackgroundColor(Color.parseColor("#e55b72"));
+                    mTextView.setBackgroundResource(R.drawable.errorbackground);
                     mTextView.setHint("UserName Required");
                 }
                 else{
@@ -137,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 if(Password.getText().toString().isEmpty()){
                     final EditText mTextView = (EditText) findViewById(R.id.passwordField);
                     mTextView.setHighlightColor(2);
-                    mTextView.setBackgroundColor(Color.parseColor("#e55b72"));
+                    mTextView.setBackgroundResource(R.drawable.errorbackground);
                     mTextView.setHint("Password Required");
                 }
                 else{
@@ -155,12 +129,43 @@ public class MainActivity extends AppCompatActivity {
         Registration_Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-<<<<<<< HEAD
-                Intent startIntent = new Intent(getApplicationContext(), Sample.class);
-=======
                 Intent startIntent = new Intent(getApplicationContext(), LocationScreen.class);
->>>>>>> 216314adf175e35e40b08eb0eef72911a5e35c15
                 startActivity(startIntent);
+            }
+        });
+        PopMenu = findViewById(R.id.popMenu);
+        PopMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                final PopupMenu popmenu = new PopupMenu(MainActivity.this,PopMenu );
+                popmenu.getMenuInflater().inflate(R.menu.popup,popmenu.getMenu());
+                popmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getItemId()==R.id.user){
+                            Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.setting){
+                            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
+                            startIntent.putExtra("PASSED_ERROR", "SETTINGS PAGE");
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.about){
+                            Intent startIntent = new Intent(getApplicationContext(), ERROR_PAGE.class);
+                            startIntent.putExtra("PASSED_ERROR", "ABOUT PAGE ");
+                            startActivity(startIntent);
+                        }
+                        else if(item.getItemId()==R.id.logOut){
+                            FirebaseAuth.getInstance().signOut();
+                            Intent startIntent2 = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(startIntent2);
+                        }
+                        return false;
+                    }
+                });
+                popmenu.show();
+
             }
         });
     }

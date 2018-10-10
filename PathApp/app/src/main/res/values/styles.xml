@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
+    <color name="topGradientT">#c6f2e6</color>
+    <color name="bottomGradientT">#fff</color>
+    <color name="HeaderTextColour">#085b5b</color>
+    <color name="TextColour">#25ddab</color>
+    <color name="ErrorColour">#ff5151</color>
+    <color name="ErrorBottom">#ffffff</color>
+
 
 </resources>
